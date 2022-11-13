@@ -32,5 +32,4 @@ public class MagicBox<T> {
         int randomInt = random.nextInt(items.length);
         return items[randomInt];
     }
-//    (doBonus ? counts[i] + 1 : counts[i])
 }
