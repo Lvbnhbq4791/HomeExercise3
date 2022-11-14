@@ -11,7 +11,7 @@ public class MagicBox<T> {
     }
 
     public boolean add(T item) {
-        if (counter<items.length) {
+        if (counter < items.length) {
             items[counter] = item;
             counter++;
             return true;
