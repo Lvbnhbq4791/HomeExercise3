@@ -1,18 +1,20 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class MagicBox<T> {
     public T[] items;
+    public int counter;
 
     public MagicBox(int boxVolume) {
         this.items = (T[]) new Object[boxVolume];
+        this.counter = 0;
     }
 
     public boolean add(T item) {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] == null) {
-                items[i] = item;
-                return true;
-            }
+        if (counter<items.length) {
+            items[counter] = item;
+            counter++;
+            return true;
         }
         return false;
     }
@@ -28,6 +30,7 @@ public class MagicBox<T> {
                 throw new BoxMinimum(r, tip, ending);
             }
         }
+        System.out.println(Arrays.toString(items));
         Random random = new Random();
         int randomInt = random.nextInt(items.length);
         return items[randomInt];
