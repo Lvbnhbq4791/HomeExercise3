@@ -30,7 +30,6 @@ public class MagicBox<T> {
                 throw new BoxMinimum(r, tip, ending);
             }
         }
-        System.out.println(Arrays.toString(items));
         Random random = new Random();
         int randomInt = random.nextInt(items.length);
         return items[randomInt];
