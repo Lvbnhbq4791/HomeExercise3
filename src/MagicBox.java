@@ -1,9 +1,9 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class MagicBox<T> {
     public T[] items;
     public int counter;
+    Random random = new Random();
 
     public MagicBox(int boxVolume) {
         this.items = (T[]) new Object[boxVolume];
@@ -27,10 +27,9 @@ public class MagicBox<T> {
             } else {
                 int r = items.length - f;
                 String ending = (r % 10 == 1 && r != 11) ? "йку" : (r % 20 > 1 && r % 20 < 5) ? "йки" : "ек";
-                throw new BoxMinimum(r, tip, ending);
+                throw new BoxMinimumSizeException(r, tip, ending);
             }
         }
-        Random random = new Random();
         int randomInt = random.nextInt(items.length);
         return items[randomInt];
     }
